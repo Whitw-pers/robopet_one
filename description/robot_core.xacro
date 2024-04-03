@@ -19,6 +19,10 @@
         <color rgba="0 0 0 1" />
     </material>
 
+    <material name="red">
+        <color rgba="1 0 0 1" />
+    </material>
+
     <!-- BASE LINK -->
     <!--baselink will be on the axes of the drive wheels, centered between the wheels-->
     <!--the rest of the robot will be described w.r. to base_link-->
