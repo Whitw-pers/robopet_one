@@ -35,11 +35,14 @@
     <joint name="chassis_joint" type="fixed">
         <parent link="base_link"/>
         <child link="chassis"/>
+        <!--need to adjust origin to align wheels on chassis-->
         <origin xyz="-0.04 0 0"/>
     </joint>
 
     <link name="chassis">
         <visual>
+            <!--need to adjust origin of chassis box to align robopet wheel positions-->
+            <!--need to change box geometry, collision, and inertial tags-->
             <origin xyz="0.115 0 0.075"/>
             <geometry>
                 <box size="0.23 0.15 0.15"/>
@@ -66,11 +69,13 @@
     <joint name="left_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="left_wheel"/>
-        <origin xyz="0 0.1 0" rpy="-${pi/2} 0 0"/>
+        <!--adjust wheel joint origin to proper chassis width-->
+        <origin xyz="0 0.1 0" rpy="-${pi/2} 0 0"/> 
         <axis xyz="0 0 1"/>
     </joint>
 
     <link name="left_wheel">
+        <!--need to adjust wheel geometry and inertial properties-->
         <visual>
             <geometry>
                 <cylinder radius="0.03" length="0.025"/>
@@ -79,7 +84,7 @@
         </visual>
         <collision>
             <geometry>
-                <cylinder radius="0.03" length="0.025"/>
+                <sphere radius="0.03"/>
             </geometry>
         </collision>
         <xacro:inertial_cylinder mass="0.1" length="0.025" radius="0.03">
@@ -96,11 +101,13 @@
     <joint name="right_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="right_wheel"/>
+        <!--adjust wheel joint origin to proper chassis width-->
         <origin xyz="0 -0.1 0" rpy="${pi/2} 0 0"/>
         <axis xyz="0 0 -1"/>
     </joint>
 
     <link name="right_wheel">
+        <!--need to adjust wheel geometry and inertial properties-->
         <visual>
             <geometry>
                 <cylinder radius="0.03" length="0.025"/>
@@ -109,7 +116,7 @@
         </visual>
         <collision>
             <geometry>
-                <cylinder radius="0.03" length="0.025"/>
+                <sphere radius="0.03"/>
             </geometry>
         </collision>
         <xacro:inertial_cylinder mass="0.1" length="0.025" radius="0.03">
@@ -122,14 +129,17 @@
     </gazebo>
 
     <!-- CASTER WHEEL LINK -->
+    <!--gonna keep caster wheel as is since it doesn't change much-->
 
     <joint name="caster_wheel_joint" type="fixed">
         <parent link="chassis"/>
         <child link="caster_wheel"/>
+        <!--may adjust origin to align it on bot-->
         <origin xyz="0.2 0 0"/>
     </joint>
 
     <link name="caster_wheel">
+        <!--would consider adjusting radius to replicate ride height-->
         <visual>
             <geometry>
                 <sphere radius="0.03"/>
