@@ -8,11 +8,11 @@ enter and source workspace
 
 `ros2 launch robopet_one launch_sim.launch.py world:=./src/robopet_one/worlds/cone_hell.world`
 
-in new terminal (also sourced)
+in new terminal
 
 `ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped`
 
-in new terminal (also sourced)
+in new terminal
 
 `rviz2 -d src/robopet_one/config/main.rviz`
 
