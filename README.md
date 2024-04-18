@@ -20,6 +20,12 @@ should open rviz and display the robot model, transforms, and laserscan
 
 ---Current robot run process---
 
+robot:
+
+enter and source workspace on rpi
+
+`ros2 launch robopet_one launch_robot.launch.py`
+
 rplidar:
 
 motor demo:
