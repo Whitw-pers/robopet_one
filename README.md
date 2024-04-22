@@ -24,7 +24,7 @@ in new terminal start rviz
 
 `rviz2 -d src/robopet_one/config/basic_nav.rviz`
 
-should open rviz and display the robot model, transforms, and laserscan. Add a map, set topic to global costmap and change color scheme to costmap (personal preference). Drive the bot around to generate a map then use the 2D Goal Pose button to set objectives for the robot to navigate to.
+should open rviz and display the robot model, transforms, laserscan, and map. As long as you keep teleop_twist_keyboard your active window, you can drive the robot around with your keyboard. Use the 2D Goal Pose button in Rviz to tell the robot where to navigate to.
 
 ---Current robot run process---
 
