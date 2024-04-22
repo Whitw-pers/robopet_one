@@ -4,19 +4,31 @@ This package contains code for simulating and running the robopet_one robot cham
 
 ---Current sim run process---
 
-enter and source workspace
+enter and source workspace, launch sim
 
 `ros2 launch robopet_one launch_sim.launch.py world:=./src/robopet_one/worlds/cone_hell.world`
 
-in new terminal
+in new terminal launch slam toolbox
 
-`ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped`
+`ros2 launch slam_toolbox online_async_launch.py params_file:=./src/robopet_one/config/mapper_params_online_async.yaml use_sim_time:=true`
 
-in new terminal
+in new terminal launch nav2
+
+`ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true`
+
+in new terminal launch telop
+
+`ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/cmd_vel_joy`
+
+in new terminal run twist_mux
+
+`ros2 run twist_mux twist_mux --ros-args --params-file ./src/robopet_one/config/twist_mux.yaml -r cmd_vel_out:=diff_cont/cmd_vel_unstamped`
+
+in new terminal start rviz
 
 `rviz2 -d src/robopet_one/config/main.rviz`
 
-should open rviz and display the robot model, transforms, and laserscan
+should open rviz and display the robot model, transforms, and laserscan. Add a map, set topic to global costmap and change color scheme to costmap (personal preference). Drive the bot around to generate a map then use the 2D Goal Pose button to set objectives for the robot to navigate to.
 
 ---Current robot run process---
 
