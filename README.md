@@ -20,15 +20,9 @@ in new terminal launch telop
 
 `ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/cmd_vel_joy`
 
-in new terminal run twist_mux
-
-`ros2 run twist_mux twist_mux --ros-args --params-file ./src/robopet_one/config/twist_mux.yaml -r cmd_vel_out:=diff_cont/cmd_vel_unstamped`
-
-(should not be necessary to run twist_mux separately anymore)
-
 in new terminal start rviz
 
-`rviz2 -d src/robopet_one/config/main.rviz`
+`rviz2 -d src/robopet_one/config/basic_nav.rviz`
 
 should open rviz and display the robot model, transforms, and laserscan. Add a map, set topic to global costmap and change color scheme to costmap (personal preference). Drive the bot around to generate a map then use the 2D Goal Pose button to set objectives for the robot to navigate to.
 
