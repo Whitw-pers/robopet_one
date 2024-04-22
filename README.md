@@ -10,11 +10,11 @@ enter and source workspace, launch sim
 
 in new terminal launch slam toolbox
 
-`ros2 launch slam_toolbox online_async_launch.py params_file:=./src/robopet_one/config/mapper_params_online_async.yaml use_sim_time:=true`
+`ros2 launch robopet_one online_async_launch.py params_file:=./src/robopet_one/config/mapper_params_online_async.yaml use_sim_time:=true`
 
 in new terminal launch nav2
 
-`ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true`
+`ros2 launch robopet_one navigation_launch.py use_sim_time:=true`
 
 in new terminal launch telop
 
@@ -23,6 +23,8 @@ in new terminal launch telop
 in new terminal run twist_mux
 
 `ros2 run twist_mux twist_mux --ros-args --params-file ./src/robopet_one/config/twist_mux.yaml -r cmd_vel_out:=diff_cont/cmd_vel_unstamped`
+
+(should not be necessary to run twist_mux separately anymore)
 
 in new terminal start rviz
 
