@@ -37,6 +37,7 @@ sometimes this fails seemingly because RSP doesn't launch properly. If this happ
 in new ssh terminal on rpi, source and launch rplidar
 
 `sudo chmod 777 /dev/ttyUSB1`
+
 `ros2 launch robopet_one rplidar.launch.py`
 
 if this has issues use `sudo dmesg | grep ttyUSB` and `sudo dmesg --human --follow` to confirm the serial ports are configured properly.
