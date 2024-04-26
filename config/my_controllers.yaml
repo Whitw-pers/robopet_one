@@ -18,7 +18,8 @@ diff_cont:
 
     left_wheel_names: ['left_wheel_joint']
     right_wheel_names: ['right_wheel_joint']
-    wheel_separation: 0.2 # need to update wheel geo here
-    wheel_radius: 0.03
+    # need to update wheel geo here to tune odometry
+    wheel_separation: 0.2286
+    wheel_radius: 0.04445
 
     use_stamped_vel: false
